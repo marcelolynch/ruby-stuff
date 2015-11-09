@@ -31,4 +31,3 @@ puts Greedy.points([]) 			# => 0
 puts Greedy.points([1]) 		# => 100
 puts Greedy.points([5]) 		# => 50
 puts Greedy.points([1,1,1,3])	# => 400
-puts Greedy.points([2,6,6,6]) # => 400

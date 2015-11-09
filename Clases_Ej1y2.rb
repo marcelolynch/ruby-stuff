@@ -51,19 +51,19 @@ end
 Person.new('James', 'Wilson', 12).first_name 
 
 #Incorrecto, necesita al menos 2 parametros ya que no hay default
-#Person.new 								
+Person.new 								
 
-#Correcto, first_name= esta implementado por la llamada a attr_accessor
+#Correcto, first_name= esta implementado por la llamada a attr_accessor :first_name
 Person.new('James', 'Wilson').first_name = 'John' 
 
 #Incorrecto, address= no esta implementado
-#Person.new('James', 'Wilson').address = 'Charles St. 123'
+Person.new('James', 'Wilson').address = 'Charles St. 123'
 
 #Incorrecto, age no es un metodo de clase
-#Person.age = 12
+Person.age = 12
 
-#Incorrecto, el metodo age= no esta implementado
+#Correcto, el metodo age= esta implementado con attr_writer :age
 Person.new('James', 'Wilson', 12).age = 13
 
 #Incorrecto, age= no esta implementado, y ademas no se puede construir sin parametros
-#Person.new.age = 14
+Person.new.age = 14

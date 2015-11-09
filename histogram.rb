@@ -18,7 +18,7 @@ class Histogram
 		self.print_freq_cols(ary, max_freq)
 	end
 
-	class << self
+	class << self #Para metodos privados de clase
 		private
 		def self.max_num_occurrences(ary) 	#habra una mejor manera?
 			moda = ary.max_by {|x| ary.count(x)}	#El elemento que mas aparecio 
