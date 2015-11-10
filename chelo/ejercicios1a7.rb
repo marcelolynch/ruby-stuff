@@ -89,9 +89,23 @@ class Intro
 	 		puts "Equilatero"
 	 	end
 	 end	 
+
+
+	 	def self.triangle_type3(side1,side2,side3)
+	 	distinct = Set.new [side1.to_f, side2.to_f, side3.to_f]
+	 	case distinct.size #Tamaño = valores distintos
+	 	when 3	
+	 		puts "Escaleno" 
+	 	when 2
+	 		puts "Isosceles"
+	 	when 1
+	 		puts "Equilatero"
+	 	end
+	 end	 
+
 end
 
 ary = [1,2,3,2,2]
 puts ary.count
 puts Intro.palindrome?"Menem"
-Intro.triangle_type2(1.0,2.0,2)
+Intro.triangle_type2(2,2,2)
