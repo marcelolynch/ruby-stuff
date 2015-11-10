@@ -1,5 +1,6 @@
+require 'set'
+
 class Intro
-	
 	#Ejercicio 1
 	 #Hacer un programa que muestre en pantalla el mensaje “Hello World”
 	def Intro.hello_world 		#equivalente a self.hello_world (de clase)
