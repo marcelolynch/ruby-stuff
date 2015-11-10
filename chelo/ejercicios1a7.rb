@@ -63,7 +63,7 @@ class Intro
 	 #Escriba un programa que indique si un triángulo es isósceles, 
 	 #escaleno o equilátero.
 	 def self.triangle_type(side1,side2,side3)
-	 	sides = [side1,side2,side3]
+	 	sides = [side1.to_f, side2.to_f, side3.to_f]
 	 
 	 	case sides.count(side1)
 	 	when 3
@@ -75,9 +75,23 @@ class Intro
 	 	end
 	 end
 
+
+	def self.triangle_type2(side1,side2,side3)
+	 	sides = [side1,side2,side3]
+	 	distinct = sides.group_by {|x| x.to_f} #=> hash agrupados por valor
+	 
+	 	case distinct.size #Tamaño = valores distintos dentro de sides
+	 	when 3	
+	 		puts "Escaleno" 
+	 	when 2
+	 		puts "Isosceles"
+	 	when 1
+	 		puts "Equilatero"
+	 	end
+	 end	 
 end
 
 ary = [1,2,3,2,2]
 puts ary.count
 puts Intro.palindrome?"Menem"
-Intro.triangle_type(2,1,2)
+Intro.triangle_type2(1.0,2.0,2)
