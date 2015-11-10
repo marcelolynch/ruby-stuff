@@ -1,0 +1,5 @@
+class AbstractList
+	
+	private
+
+end
