@@ -17,7 +17,7 @@ class Greedy
 
 		points += 50 * (dice.count(5)%3) #Cinco libres (no terna)
 
-		(2..6).each do |x|					#Ternas del 2 al 6
+		(2..6).each do |x|				#Ternas del 2 al 6
 			appearances = dice.count(x)
 			triples = appearances/3
 			points += 100 * x * triples
@@ -30,4 +30,4 @@ end
 puts Greedy.points([]) 			# => 0
 puts Greedy.points([1]) 		# => 100
 puts Greedy.points([5]) 		# => 50
-puts Greedy.points([1,1,1,3])	# => 400
+puts Greedy.points([1,1,1,3])	# => 1000

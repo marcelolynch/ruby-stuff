@@ -3,7 +3,7 @@ require 'set'
 
 module Cards
 	class CardCentral
-		attr_accessor :balanceLimit
+		attr_reader :balanceLimit
 
 		def initialize
 			@balanceLimit = -10
