@@ -40,4 +40,4 @@ class Histogram
 end
 
 
-Histogram.new.vertical([1,1,1,1,1,1,2,2,3,1,2,3,2,5,5,5,5,5])
+Histogram.new.horizontal([1,1,1,1,1,1,1,4,4,2,3,2,3,2,5,5,5,5,5])
