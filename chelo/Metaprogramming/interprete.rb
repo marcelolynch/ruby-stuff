@@ -12,7 +12,11 @@ class Interprete
 		eval(@instructions)
 	end
 
-	def value(x)
+	def clear
+		@instructions = ""
+	end
+
+	defs value(x)
 		eval(@instructions + "; #{x}")
 	end
 end
