@@ -15,6 +15,14 @@ class Mock
 		end
 	end
 
+	def _times(m)
+		sym = m.to_sym
+		if(@called.has_key?(sym))
+			@called[sym]
+		else 0
+		end
+	end
+
 	def method_missing(m, *args)
 		sym = m.to_sym #por las dudas
 		ret_value = nil
@@ -48,7 +56,7 @@ class Mock
 		if @called.has_key?(sym)
 			@called[sym] += 1
 		else
-			@called[sym] = 0
+			@called[sym] = 1
 		end
 	end
 
@@ -63,3 +71,4 @@ list = mock
 puts list.at(0)
 puts list.at(1)
 puts list.size
+puts list._times(:at)

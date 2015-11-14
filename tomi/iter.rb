@@ -2,7 +2,7 @@
 Integer.class_eval do
 	def iter
 		self.downto(1) {|x| yield x}
-	end
+	endd
 end
 
 5.iter do |x|
