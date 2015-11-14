@@ -27,8 +27,20 @@ class ComplexNum
 			@imPart + c.imPart)
 	end
 
+	def sum(other)
+		+(other)
+	end
+
 	def -(other)
 		self+(-other)
+	end
+
+
+	def *(other)
+		#(a+bi)*(c+di) = (a*c - b*d) + (bc + ad)i
+		other = other.complexify
+		ComplexNum.new(self.realPart*other.realPart - self.imPart*other.imPart, \
+					self.imPart*other.realPart + other.imPart*self.realPart)
 	end
 
 	def +@
@@ -45,18 +57,31 @@ class ComplexNum
 
 end
 
-class Fixnum
+class Numeric
 	def complexify
 		ComplexNum.new(self, 0)
 	end
 
-	def -(other)
-		other + -self
+	def substract(other)
+		-other + self
 	end
 
-	def +(other)
+	def add(other)
 		other + self
 	end
+
+	def multiply_by(other)
+		other * self
+	end
+
+	def divide_by(other)
+		self.multiply_by(other.inverse).to_f
+	end
+
+	def inverse
+		self ** -1
+	end
+
 end
 
 z1 = ComplexNum.new(2,2)
@@ -65,4 +90,4 @@ z2 = ComplexNum.new(1,1)
 puts z1 + z2
 puts z1 - z2
 puts z1 + 6.0
-puts 6 + z1
+puts 6.divide_by(2)
