@@ -1,12 +1,38 @@
 require_relative "iterable.rb"
 
 class AbstractList
+	include Enumerable
 	include Iterable
+
+	def each
+		raise NotImplementedError.new
+	end
+
+	def fold(ini)
+		each {|x| ini = yield(ini, x) }
+		ini
+	end
+
+	def map
+		result = []
+		each {|x| result << yield(x)}
+
+		result
+	end
+
+	def size
+		raise NotImplementedError.new
+	end
+
+	def empty?
+		size == 0
+	end
+
+
 end
 
 
 class ArrayList < AbstractList
-	include Enumerable
 
 	def initialize
 	@arr = Array.new
@@ -106,18 +132,20 @@ class LinkedList < AbstractList
 end
 
 
-myList = LinkedList.new
+#myList = LinkedList.new
 
-myList.add(0)
-myList.add(1)
-myList.add(2)
-myList.add(3)
-myList.add(4)
-myList.add(5)
-myList.add(6)
+#myList.add(0)
+#myList.add(1)
+#myList.add(2)
+#myList.add(3)
+#myList.add(4)
+#myList.add(5)
+#myList.add(6)
 
-i = myList
-i.iterator_start
-while i.iterator_has_next?
-	puts i.iterator_next
-end
+#print myList.fold(0){|x,y| x = 2*y}
+
+#i = myList
+#i.iterator_start
+#while i.iterator_has_next?
+#	puts i.iterator_next
+#end
