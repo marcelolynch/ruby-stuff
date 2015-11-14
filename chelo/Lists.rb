@@ -1,5 +1,7 @@
+require_relative "iterable.rb"
+
 class AbstractList
-	#???????
+	include Iterable
 end
 
 
@@ -114,9 +116,8 @@ myList.add(4)
 myList.add(5)
 myList.add(6)
 
-myList.each {|x| print "#{x} "}
-puts
-
-puts myList.at(4)
-
-myList.each {|x| print "#{x} "}
+i = myList
+i.iterator_start
+while i.iterator_has_next?
+	puts i.iterator_next
+end
