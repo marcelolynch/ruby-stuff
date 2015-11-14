@@ -24,4 +24,4 @@ end
 algo = Proxy.new("hola")
 nuevo = algo.sub(/hol/, "medi")
 puts nuevo
-puts algo._called? "sub"
+puts algo._called? "susdksdkb"
