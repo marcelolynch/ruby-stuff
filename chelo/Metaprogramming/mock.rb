@@ -7,7 +7,12 @@ class Mock
 
 	def _when(sym, args=[], ret_value)
 		sym = sym.to_sym
-		@returnables[sym] = {args => ret_value}
+
+		if @returnables.has_key?(sym)
+			@returnables[sym][args] = ret_value
+		else
+			@returnables[sym] = {args => ret_value}
+		end
 	end
 
 	def method_missing(m, *args)
@@ -51,8 +56,10 @@ end
 
 mock = Mock.new
 mock._when(:at, [0], 1)
+mock._when(:at, [1], 11)
 mock._when(:size, [], 10)
 
 list = mock
 puts list.at(0)
+puts list.at(1)
 puts list.size
