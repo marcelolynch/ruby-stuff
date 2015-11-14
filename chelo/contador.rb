@@ -7,7 +7,7 @@ class Contador
 	end
 
 	def increment
-		@value += @increment
+		@value += @inc
 	end
 
 	def ==(other)
@@ -21,9 +21,3 @@ class Contador
 	end
 
 end
-
-
-c = Contador.new
-cc = Contador.new
-
-puts c.eql?cc
