@@ -16,7 +16,7 @@ class Interprete
 		@instructions = ""
 	end
 
-	defs value(x)
+	def value(x)
 		eval(@instructions + "; #{x}")
 	end
 end
@@ -26,4 +26,8 @@ interprete.add("a = [1,2,3]")
 interprete.add('a.each do |x|')
 interprete.add("puts x")
 interprete.add("end")
+
+interprete.value("a")
 interprete.execute
+
+puts "FF".to_i(16)
